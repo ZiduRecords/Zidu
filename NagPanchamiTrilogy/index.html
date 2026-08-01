@@ -1,26 +1,3 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <title>Landingpage – SONGTITLE</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- ============================
-       ZENTRALE VARIABLEN
-       ============================ -->
-  <script>
-    const SONG_TITLE = "Nag Panchami Trilogy";
-    const COVER_IMG = "NagPanchamiTrilogy.jpg";
-
-    const META_PIXEL_ID = "1288632976680117";
-    const PIXEL_MODE = true; // Pixel + Consent aktiv
-
-    // Logos
-    const SPOTIFY_LOGO   = "https://ZiduRecords.github.io/Assets/SpotifyLogo.png";
-    const APPLE_LOGO     = "https://ZiduRecords.github.io/Assets/AppleMusicLogo.png";
-    const PRESAVE_LOGO   = "../PRESAVELOGO.png";
-    const INSTAGRAM_LOGO = "https://ZiduRecords.github.io/Assets/InstagramLogo.png";
-    const TIKTOK_LOGO    = "https://ZiduRecords.github.io/Assets/TikTokLogo.png";
 
     // Links
     const SPOTIFY_LINK   = "https://open.spotify.com/intl-de/album/0TRAGa288rc3Hk6lwcAPmg";
@@ -29,164 +6,43 @@
     const INSTAGRAM_LINK = "https://www.instagram.com/esha_alto/";
     const TIKTOK_LINK    = "https://www.tiktok.com/@esha_alto";
 
-    // Sichtbarkeit der Buttons
-    const SHOW_PRESAVE   = false;
-    const SHOW_SPOTIFY   = true;
-    const SHOW_APPLE     = true;
-    const SHOW_INSTAGRAM = true;
-    const SHOW_TIKTOK    = true;
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Nag Panchami Trilogy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    // Größen
-    const COVER_SIZE  = 260;
-    const LOGO_SIZE   = 26;
-    const BUTTON_SIZE = 12;
+  <!-- Zentrale Styles -->
+  <link rel="stylesheet" href="https://zidurecords.github.io/Assets/css/landing.css">
+
+  <!-- Zentrale Scripts -->
+  <script src="https://zidurecords.github.io/Assets/js/pixel.js"></script>
+  <script src="https://zidurecords.github.io/Assets/js/colors.js"></script>
+  <script src="https://zidurecords.github.io/Assets/js/consent.js"></script>
+
+  <!-- Album-spezifische Variablen -->
+  <script>
+    const SONG_TITLE = "Nag Panchami Trilogy";
+    const COVER_IMG = "NagPanchamiTrilogy.jpg";
+
+    const SPOTIFY_LINK   = "https://open.spotify.com/intl-de/album/0TRAGa288rc3Hk6lwcAPmg";
+    const APPLE_LINK     = "https://music.apple.com/de/album/100-days-to-live-single/1842874012";
+    const INSTAGRAM_LINK = "https://www.instagram.com/XXXXXXXXXXXXX";
+    const TIKTOK_LINK    = "https://www.tiktok.com/XXXXXXXXXXXXX";
+    const PRESAVE_LINK   = "#";
+
+    const SHOW_SPOTIFY   = true;
+    const SHOW_APPLE     = false;
+    const SHOW_INSTAGRAM = false;
+    const SHOW_TIKTOK    = false;
+    const SHOW_PRESAVE   = false;    
   </script>
 
-  <!-- ============================
-       STYLES
-       ============================ -->
-  <style>
-    :root {
-      --accent-gold: #d4a75c;
-      --accent-amber: #e6b980;
-      --text-light: #f5f5f5;
-      --spotify-green: #1DB954;
-      --apple-red: #ff3b30;
-      --tiktok-black: #000;
-      --instagram-purple: #5a2a82;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background: #222;
-      color: var(--text-light);
-      text-align: center;
-      padding: 10px;
-      transition: background 1.5s ease;
-      animation: bgPulse 14s ease-in-out infinite;
-    }
-
-    @keyframes bgPulse {
-      0%   { filter: brightness(1); }
-      50%  { filter: brightness(1.12); }
-      100% { filter: brightness(1); }
-    }
-
-    h1 {
-      margin-bottom: 14px;
-      font-size: 26px;
-      text-shadow: 0 0 8px rgba(0,0,0,0.6);
-    }
-
-    /* Glow Effekt */
-    .glow {
-      animation: glowPulse 2.4s ease-in-out infinite;
-    }
-
-    @keyframes glowPulse {
-      0%   { text-shadow: 0 0 4px rgba(255,255,255,0.2); }
-      50%  { text-shadow: 0 0 14px rgba(255,255,255,0.45); }
-      100% { text-shadow: 0 0 4px rgba(255,255,255,0.2); }
-    }
-
-    img.cover {
-      border-radius: 10px;
-      box-shadow: 0 0 14px rgba(0,0,0,0.6);
-      margin-bottom: 18px;
-      transition: transform 0.3s ease;
-    }
-
-    img.cover:hover {
-      transform: scale(1.03);
-    }
-
-    /* FLEX-ROW für Logo + Button */
-    .platform-row {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      margin: 10px auto;
-      max-width: 260px;
-    }
-
-    #platforms {
-      margin-bottom: 40px;
-    }
-
-    .platform-logo {
-      width: 26px;
-    }
-
-    a.button {
-      display: inline-block;
-      padding: 6px 10px;
-      font-size: var(--button-font-size);
-      border-radius: 6px;
-      text-decoration: none;
-      white-space: nowrap;
-      width: 180px;
-      text-align: center;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    a.button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    }
-
-    /* Buttons disabled until consent */
-    .disabled {
-      pointer-events: none;
-      opacity: 0.35; /* statt 0.45 */
-      filter: grayscale(40%)
-    }
-
-    /* Farben */
-    a.button.spotify   { background: var(--spotify-green);   color: #fff; }
-    a.button.apple     { background: var(--apple-red);       color: #fff; }
-    a.button.presave   { background: var(--accent-gold);     color: #000; }
-    a.button.instagram { background: var(--instagram-purple);color: #fff; }
-    a.button.tiktok    { background: var(--tiktok-black);    color: #fff; }
-
-    /* BLOCKIERENDER CONSENT-DIALOG */
-    #consent-dialog {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.55);
-      z-index: 99999;
-    }
-
-    .consent-box {
-      background: #111;
-      color: #fff;
-      padding: 20px;
-      width: 280px;
-    
-      /* NEU: Position weiter unten */
-      margin: 340px auto 0 auto;
-    
-      border-radius: 10px;
-      text-align: center;
-      box-shadow: 0 0 14px rgba(0,0,0,0.5);
-    
-      /* Optional: leichte Transparenz für eleganteren Look */
-      backdrop-filter: blur(6px);
-      background: rgba(17,17,17,0.92);
-    }
-
-
-    .consent-box button {
-      padding: 8px 14px;
-      margin: 6px;
-      background: var(--accent-gold);
-      border: none;
-      color: #000;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-  </style>
+  <!-- Größen -->
+  <script src="https://zidurecords.github.io/Assets/js/config.js"></script>
+  <!-- landing.js MUSS zuletzt kommen -->
+  <script src="https://zidurecords.github.io/Assets/js/landing.js" defer></script>
 </head>
 
 <body>
@@ -195,207 +51,15 @@
 
   <img id="cover-img" class="cover" alt="Album Cover">
 
-  <!-- Dynamische Plattformen -->
   <div id="platforms"></div>
 
-  <!-- BLOCKIERENDER CONSENT-DIALOG -->
   <div id="consent-dialog">
     <div class="consent-box">
-      This site uses tracking (Meta Pixel) for performance and analytics.
-      Please confirm to continue.
+      This site uses tracking (Meta & TikTok Pixel).
       <br><br>
       <button onclick="acceptConsent()">Confirm</button>
     </div>
   </div>
-
-  <script>
-    document.getElementById("song-title").innerText = SONG_TITLE;
-
-    const coverImg = document.getElementById("cover-img");
-    coverImg.src = COVER_IMG;
-    coverImg.style.width = COVER_SIZE + "px";
-
-    /* Dynamische Plattformen */
-    const platforms = [
-      { show: SHOW_PRESAVE,   logo: PRESAVE_LOGO,   text: "Presave",    link: PRESAVE_LINK,   class: "presave" },
-      { show: SHOW_SPOTIFY,   logo: SPOTIFY_LOGO,   text: "Spotify",    link: SPOTIFY_LINK,   class: "spotify" },
-      { show: SHOW_APPLE,     logo: APPLE_LOGO,     text: "Apple Music",link: APPLE_LINK,     class: "apple" },
-      { show: SHOW_INSTAGRAM, logo: INSTAGRAM_LOGO, text: "Instagram",  link: INSTAGRAM_LINK, class: "instagram" },
-      { show: SHOW_TIKTOK,    logo: TIKTOK_LOGO,    text: "TikTok",     link: TIKTOK_LINK,    class: "tiktok" }
-    ];
-
-    const container = document.getElementById("platforms");
-
-    platforms.forEach(p => {
-      if (!p.show) return;
-
-      const row = document.createElement("div");
-      row.className = "platform-row";
-
-      const logo = document.createElement("img");
-      logo.src = p.logo;
-      logo.className = "platform-logo";
-
-      const btn = document.createElement("a");
-      btn.href = p.link;
-      btn.className = `button ${p.class} disabled`;
-      btn.innerText = p.text;
-
-      // TRACKING + REDIRECT DELAY
-      btn.onclick = function(event) {
-        event.preventDefault();
-
-        if (PIXEL_MODE) {
-          fbq('track', 'OutboundClick');
-          fbq('track', p.text.replace(" ", "") + "Click");
-        }
-
-        setTimeout(() => {
-          window.location.href = p.link;
-        }, 180);
-      };
-
-      row.appendChild(logo);
-      row.appendChild(btn);
-      container.appendChild(row);
-    });
-    
-    if (!PIXEL_MODE) {
-      document.getElementById('consent-dialog').style.display = 'none';
-    }
-
-    /* Farbextraktion + dynamische Titel-Farbe */
-    function extractColors() {
-      const img = new Image();
-      img.crossOrigin = "Anonymous";
-      img.src = COVER_IMG;
-
-      img.onload = function () {
-        const canvas = document.createElement("canvas");
-        const ctx = canvas.getContext("2d");
-        canvas.width = img.width;
-        canvas.height = img.height;
-        ctx.drawImage(img, 0, 0);
-
-        const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
-
-        let r = 0, g = 0, b = 0, count = 0;
-
-        for (let i = 0; i < data.length; i += 4 * 80) {
-          r += data[i];
-          g += data[i + 1];
-          b += data[i + 2];
-          count++;
-        }
-
-        r = Math.floor(r / count);
-        g = Math.floor(g / count);
-        b = Math.floor(b / count);
-
-        const brightness = (r + g + b) / 3;
-
-        let top, bottom;
-
-        if (brightness > 150) {
-          top = `rgb(${r * 0.35}, ${g * 0.35}, ${b * 0.35})`;
-          bottom = `rgb(${r * 0.15}, ${g * 0.15}, ${b * 0.15})`;
-        } else if (brightness < 90) {
-          top = `rgb(${r + 60}, ${g + 60}, ${b + 60})`;
-          bottom = `rgb(${r + 20}, ${g + 20}, ${b + 20})`;
-        } else {
-          top = `rgb(${r + 30}, ${g + 30}, ${b + 30})`;
-          bottom = `rgb(${r - 10}, ${g - 10}, ${b - 10})`;
-        }
-
-        document.body.style.background = `linear-gradient(to bottom, ${top}, ${bottom})`;
-
-        /* Dynamische Titel-Farbe */
-        let titleColor;
-
-        if (brightness > 150) {
-          titleColor = `rgb(${r * 0.3}, ${g * 0.3}, ${b * 0.3})`;
-        } else {
-          titleColor = `rgb(${Math.min(255, r + 180)}, ${Math.min(255, g + 180)}, ${Math.min(255, b + 180)})`;
-        }
-
-        const title = document.getElementById("song-title");
-        title.style.color = titleColor;
-      };
-    }
-
-    extractColors();
-
-    /* Consent Logic */
-    function acceptConsent() {
-      document.getElementById("consent-dialog").style.display = "none";
-
-      // Enable buttons
-      document.querySelectorAll(".button").forEach(btn => {
-        btn.classList.remove("disabled");
-        btn.style.pointerEvents = "auto";
-        btn.style.opacity = "1";
-      });
-
-      loadPixel();
-    }
-
-    /* EU Consent */
-    async function checkEU() {
-      try {
-        const response = await fetch("https://ipapi.co/json/");
-        const data = await response.json();
-
-        const euCountries = [
-          "AT","BE","BG","HR","CY","CZ","DK","EE","FI","FR","DE","GR",
-          "HU","IE","IT","LV","LT","LU","MT","NL","PL","PT","RO","SK",
-          "SI","ES","SE"
-        ];
-
-        if (!PIXEL_MODE) {
-          // Pixel deaktiviert → Buttons sofort aktiv
-          document.querySelectorAll(".button").forEach(btn => {
-            btn.classList.remove("disabled");
-            btn.style.pointerEvents = "auto";
-            btn.style.opacity = "1";
-          });
-          return;
-        }
-        
-        if (euCountries.includes(data.country)) {
-          document.getElementById('consent-dialog').style.display = 'block';
-        } else {
-          loadPixel();
-          document.querySelectorAll(".button").forEach(btn => {
-            btn.classList.remove("disabled");
-            btn.style.pointerEvents = "auto";
-            btn.style.opacity = "1";
-          });
-        }
-
-      } catch (e) {
-        document.getElementById('consent-dialog').style.display = 'block';
-      }
-    }
-
-    function loadPixel() {
-      if (!PIXEL_MODE) return; // Pixel deaktiviert
-    
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-    
-      fbq('init', META_PIXEL_ID);
-      fbq('track', 'PageView');
-    }
-
-
-    checkEU();
-  </script>
 
 </body>
 </html>
