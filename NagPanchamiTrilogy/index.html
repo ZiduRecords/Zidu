@@ -46,13 +46,20 @@
 
   <div id="platforms"></div>
 
-  <div id="consent-dialog">
-    <div class="consent-box">
-      This site uses tracking (Meta & TikTok Pixel).
-      <br><br>
-      <button onclick="acceptConsent()">Confirm</button>
+<div id="consent-dialog" style="display:none; /* deine Styles */">
+  <div class="consent-content">
+    <h3>Privacy Settings</h3>
+    <p>We use cookies and tracking technologies (Meta, TikTok) to analyze the use of our links.</p>
+    
+    <div style="display: flex; gap: 10px; justify-content: center; margin-top: 15px;">
+      <!-- AKZEPTIEREN BUTTON -->
+      <button onclick="acceptConsent()" class="consent-btn accept">Accept</button>
+      
+      <!-- ABLEHNEN BUTTON -->
+      <button onclick="declineConsent()" class="consent-btn decline">Decline</button>
     </div>
   </div>
+</div>
 
 </body>
 </html>
