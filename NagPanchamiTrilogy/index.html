@@ -8,10 +8,11 @@
   <!-- Zentrale Styles -->
   <link rel="stylesheet" href="https://zidurecords.github.io/Assets/css/landing.css">
 
-  <!-- Album-spezifische Konfiguration (muss vor den Hauptskripten stehen) -->
+  <!-- Album-spezifische Konfiguration -->
   <script>
-    const SONG_TITLE = "Nag Panchami Trilogy";
-    const COVER_IMG = "NagPanchamiTrilogy.jpg";
+    const SONG_TITLE        = "Nag Panchami Trilogy";
+    const ALBUM_DESCRIPTION = "Eine dreiteilige musikalische Reise voller epischer Rhythmen und mystischer Klänge."; // <--- HIER DEIN TEXT
+    const COVER_IMG         = "NagPanchamiTrilogy.jpg";
 
     const SPOTIFY_LINK   = "https://open.spotify.com/intl-de/album/0TRAGa288rc3Hk6lwcAPmg";
     const APPLE_LINK     = "https://music.apple.com/de/album/100-days-to-live-single/1842874012";
@@ -31,17 +32,19 @@
 
   <!-- HTML Platzhalter -->
   <h1 id="song-title" class="glow"></h1>
+  
+  <!-- NEU: Beschreibung für das Album -->
+  <p id="album-description" class="album-desc"></p>
+
   <img id="cover-img" class="cover" alt="Album Cover">
   <div id="platforms"></div>
 
-  <!-- Zentrale Skripte (werden geladen, sobald das HTML bereitsteht) -->
+  <!-- Zentrale Skripte -->
   <script src="https://zidurecords.github.io/Assets/js/config.js"></script>
   <script src="https://zidurecords.github.io/Assets/js/pixel.js"></script>
   <script src="https://zidurecords.github.io/Assets/js/colors.js"></script>
   <script src="https://zidurecords.github.io/Assets/js/consent.js"></script>
   <script src="https://zidurecords.github.io/Assets/js/legal.js"></script>
-  
-  <!-- landing.js als Abschluss -->
   <script src="https://zidurecords.github.io/Assets/js/landing.js"></script>
 
 </body>
