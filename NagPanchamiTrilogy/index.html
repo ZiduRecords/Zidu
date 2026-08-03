@@ -8,13 +8,7 @@
   <!-- Zentrale Styles -->
   <link rel="stylesheet" href="https://zidurecords.github.io/Assets/css/landing.css">
 
-  <!-- Zentrale Scripts -->
-  <script src="https://zidurecords.github.io/Assets/js/pixel.js"></script>
-  <script src="https://zidurecords.github.io/Assets/js/colors.js"></script>
-  <script src="https://zidurecords.github.io/Assets/js/consent.js"></script>
-  <script src="https://zidurecords.github.io/Assets/js/legal.js"></script>
-
-  <!-- Album-spezifische Variablen -->
+  <!-- Album-spezifische Konfiguration (muss vor den Hauptskripten stehen) -->
   <script>
     const SONG_TITLE = "Nag Panchami Trilogy";
     const COVER_IMG = "NagPanchamiTrilogy.jpg";
@@ -31,18 +25,24 @@
     const SHOW_TIKTOK    = false;
     const SHOW_PRESAVE   = false;    
   </script>
-
-  <!-- Größen -->
-  <script src="https://zidurecords.github.io/Assets/js/config.js"></script>
-  <!-- landing.js MUSS zuletzt kommen -->
-  <script src="https://zidurecords.github.io/Assets/js/landing.js" defer></script>
 </head>
 
 <body>
 
+  <!-- HTML Platzhalter -->
   <h1 id="song-title" class="glow"></h1>
   <img id="cover-img" class="cover" alt="Album Cover">
   <div id="platforms"></div>
+
+  <!-- Zentrale Skripte (werden geladen, sobald das HTML bereitsteht) -->
+  <script src="https://zidurecords.github.io/Assets/js/config.js"></script>
+  <script src="https://zidurecords.github.io/Assets/js/pixel.js"></script>
+  <script src="https://zidurecords.github.io/Assets/js/colors.js"></script>
+  <script src="https://zidurecords.github.io/Assets/js/consent.js"></script>
+  <script src="https://zidurecords.github.io/Assets/js/legal.js"></script>
+  
+  <!-- landing.js als Abschluss -->
+  <script src="https://zidurecords.github.io/Assets/js/landing.js"></script>
 
 </body>
 </html>
